@@ -42,7 +42,73 @@ p00/1.jpg day08/0069.jpg left -0.507,-0.112,-0.029 0.247,-0.052 -0.115,0.508 -0.
 
 ## 과제
 
+눈 이미지와 head pose가 주어졌을 때 시선 방향 `2DGaze`를 추정한다.
 
+### 입력과 출력
+
+| 구분 | 라벨 칸 | 형태 | 내용 |
+|------|---------|------|------|
+| 입력 | `Image` | (1, 36, 60) float32, 0~1 | 정규화된 grayscale 눈 이미지 |
+| 입력 | `2DHead` | (2,) float32 | head pose (yaw, pitch), 라디안 |
+| 출력 | `2DGaze` | (2,) float32 | gaze (yaw, pitch), 라디안 |
+
+- 모델은 이미지와 head pose **둘 다** 입력으로 받는다.
+- 라벨의 나머지 칸(`Origin`, `WhichEye`, `3DHead`, `Rmat`, `Smat`, `GazeOrigin`)은 입력으로 쓰지 않는다.
+- 왼눈과 오른눈은 서로 다른 샘플로 다룬다. 오른눈은 전처리에서 이미 좌우 반전되어 있으므로 두 눈을 같은 모델로 학습한다.
+
+`reader.py`가 이 형태 그대로 돌려준다.
+
+```python
+info, label = dataset[i]
+info["eye"]        # 입력 이미지
+info["head_pose"]  # 입력 head pose
+label              # 정답 2DGaze
+```
+
+### 평가: leave-one-person-out
+
+15명(p00~p14)을 한 명씩 돌아가며 테스트 대상으로 삼는 15-fold 교차 검증이다.
+
+1. fold k에서는 `pk`의 3,000개를 테스트 세트로, 나머지 14명의 42,000개를 학습 세트로 쓴다.
+2. 모델을 학습 세트로 처음부터 학습하고, 테스트 세트에서 평균 각도 오차를 잰다.
+3. 15개 fold의 결과를 모두 보고하고, 그 평균을 최종 성능으로 삼는다.
+
+```python
+persons = [f"p{k:02d}" for k in range(15)]
+label = lambda p: f"data/EyeBased/MPIIGaze/Label/{p}.label"
+
+for test in persons:
+    train = reader.txtload([label(p) for p in persons if p != test], "data/EyeBased/MPIIGaze/Image", batch_size=..., shuffle=True)
+    test_loader = reader.txtload(label(test), "data/EyeBased/MPIIGaze/Image", batch_size=..., shuffle=False)
+    ...
+```
+
+주의할 점:
+
+- 테스트하는 사람의 데이터는 학습, 정규화 통계 계산, early stopping, 하이퍼파라미터 선택 어디에도 쓰지 않는다. 검증 세트가 필요하면 학습용 14명 안에서 사람 단위로 떼어 낸다.
+- 하이퍼파라미터는 모든 fold에서 같게 둔다. fold마다 따로 고르지 않는다.
+- fold마다 모델을 새로 초기화한다.
+
+### 평가 지표: 각도 오차
+
+예측과 정답 (yaw, pitch)를 각각 3D 단위 벡터로 바꾼 뒤 두 벡터 사이의 각도를 도(°) 단위로 잰다. yaw와 pitch의 오차를 따로 재거나 2D 거리로 재지 않는다.
+
+```python
+import numpy as np
+from preprocess.mpii_norm import gaze_to_3d
+
+def angular_error(pred, gt):
+    """pred, gt: (N, 2) (yaw, pitch) 라디안 → (N,) 도"""
+    a, b = gaze_to_3d(pred), gaze_to_3d(gt)
+    cos = np.sum(a * b, axis=-1) / (np.linalg.norm(a, axis=-1) * np.linalg.norm(b, axis=-1))
+    return np.degrees(np.arccos(np.clip(cos, -1.0, 1.0)))
+```
+
+결과는 다음처럼 보고한다.
+
+| 테스트 대상 | p00 | p01 | … | p14 | 평균 |
+|-------------|-----|-----|---|-----|------|
+| 각도 오차 (°) | | | | | |
 
 
 ## Installation (conda)

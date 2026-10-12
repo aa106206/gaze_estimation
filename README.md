@@ -1,12 +1,3 @@
-## Installation (conda)
-
-```
-conda create -n gaze python=3.12 -y
-conda activate gaze
-
-conda install -c conda-forge jupyter matplotlib
-```
-
 ## 데이터 폴더 구조
 
 `python -m preprocess.mpii`를 실행하면 `data/` 아래에 다음이 생긴다. `data/`는 `.gitignore`에 들어 있어 저장소에 올라가지 않는다. 변환 과정은 [preprocess/README.md](preprocess/README.md)에 정리되어 있다.
@@ -47,3 +38,18 @@ p00/1.jpg day08/0069.jpg left -0.507,-0.112,-0.029 0.247,-0.052 -0.115,0.508 -0.
 ```
 
 `reader.py`는 `loader("data/EyeBased/MPIIGaze/Label/p00.label", "data/EyeBased/MPIIGaze/Image")`처럼 라벨 파일과 `Image/` 폴더를 받는다. 각 칸의 의미는 [preprocess/README.md의 5. 출력](preprocess/README.md#5-출력)을 본다.
+
+
+## 과제
+
+
+
+
+## Installation (conda)
+
+```
+conda create -n gaze python=3.12 -y
+conda activate gaze
+
+conda install -c conda-forge jupyter matplotlib # for visualization and Eda
+```

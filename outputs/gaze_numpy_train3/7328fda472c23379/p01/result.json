@@ -1,0 +1,20 @@
+{
+  "signature": "7328fda472c233798e1b6e9898fcfa2ffc76c3368447826b5e00b21699689068",
+  "kind": "lopo",
+  "test_person": "p01",
+  "epochs": 20,
+  "train_samples": 42000,
+  "test_samples": 3000,
+  "train_mse_rad2": 0.003179507049179748,
+  "test_mse_rad2": 0.0065130628830598215,
+  "train_error_deg": 3.7954564708737015,
+  "mean_error_deg": 5.792787630637743,
+  "median_error_deg": 5.537212038868541,
+  "test_minus_train_deg": 1.997331159764041,
+  "train_minutes": 5.332673830546749,
+  "files": {
+    "model.npz": "cee74740bc95835a5fb7517f4904be5d005cc9bf543fec62ec49eac7001f5a7b",
+    "history.csv": "5a7be2249f2ed7c9ce49836967e4bbedd555a232f4153cf7a095e3c44ff852b7",
+    "predictions.csv": "d51d66deff790e8961e28e72172943723668339b54552586a14c706034d9a57f"
+  }
+}

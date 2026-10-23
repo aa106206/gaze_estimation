@@ -1,0 +1,15 @@
+{
+  "signature": "2c4d85e33360cf01d044c63a51d34a926f63544837acf5946d2dc8a060e865ee",
+  "test_person": "p10",
+  "train_samples": 42000,
+  "test_samples": 3000,
+  "mean_error_deg": 6.002924457719257,
+  "median_error_deg": 5.644434142593521,
+  "train_minutes": 42.359741604867544,
+  "epochs": 40,
+  "files": {
+    "model.npz": "b66ae5ad56eb2d7b0f148597123720e8efd425665c120b4fb2d0fce1f873270b",
+    "history.csv": "f539498faa885b98eb5d1f7f0f861588f673654a70fc21776d2aa607f5d4f285",
+    "predictions.csv": "6c2b54f783ccd5a241f298490f51ae21bdab2b0b7a3ca841dd8009448fb59ee3"
+  }
+}

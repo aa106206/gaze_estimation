@@ -1,0 +1,23 @@
+{
+  "complete_15_fold": true,
+  "evaluated_persons": [
+    "p00",
+    "p01",
+    "p02",
+    "p03",
+    "p04",
+    "p05",
+    "p06",
+    "p07",
+    "p08",
+    "p09",
+    "p10",
+    "p11",
+    "p12",
+    "p13",
+    "p14"
+  ],
+  "mean_angular_error_deg": 5.7611287630084576,
+  "weighted_mean_angular_error_deg": 5.7611287630084576,
+  "readme_ridge_reference_deg": 7.27
+}

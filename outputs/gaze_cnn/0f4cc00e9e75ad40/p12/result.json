@@ -1,0 +1,27 @@
+{
+  "test_person": "p12",
+  "train_people": [
+    "p00",
+    "p01",
+    "p02",
+    "p03",
+    "p04",
+    "p05",
+    "p06",
+    "p07",
+    "p08",
+    "p09",
+    "p10",
+    "p11",
+    "p13",
+    "p14"
+  ],
+  "n_train": 42000,
+  "n_test": 3000,
+  "mean_angular_error_deg": 5.388078003140012,
+  "median_angular_error_deg": 4.828454359198362,
+  "naive_mean_gaze_error_deg": 8.602592304682858,
+  "epochs": 50,
+  "train_seconds": 972.8498973748647,
+  "signature": "0f4cc00e9e75ad40de21e050a510035ad75550dd46e271fa953b30c66fe86943"
+}

@@ -1,0 +1,13 @@
+{
+  "signature": "3acce9b179203da641c004414b3935afb3c38f459f3fdabe00531cb550e434dd",
+  "kind": "diagnostic",
+  "epochs": 10,
+  "train_samples": 39000,
+  "val_samples": 3000,
+  "monitor_samples": 1300,
+  "files": {
+    "model.npz": "a7e7cda70e49ae396361b3c2da8006a5ddd03949c685604480d03cac89428639",
+    "history.csv": "0925bb33060f9384fc89a983f2a4d2a9edaa07907637c5efc55e1ee95e256f35",
+    "diagnostic_curves.png": "78b84d2890a6288113dd63837155d28821339e6a90434cb7eb5df3f7737fa42b"
+  }
+}

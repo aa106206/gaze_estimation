@@ -1,0 +1,26 @@
+{
+  "signature": "3acce9b179203da641c004414b3935afb3c38f459f3fdabe00531cb550e434dd",
+  "config": {
+    "seed": 42,
+    "epochs": 10,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "min_learning_rate": 1e-05,
+    "warmup_epochs": 1,
+    "gradient_clip": 5.0,
+    "channels": [
+      12,
+      24
+    ],
+    "image_hidden": 96,
+    "fusion_hidden": 48,
+    "dropout": 0.25,
+    "fusion_dropout": 0.1,
+    "photometric_augmentation": true
+  },
+  "data_root": "/Users/parkdongjun/Desktop/3-2/딥러닝/gaze_estimation/data/EyeBased/MPIIGaze",
+  "diagnostic_test_person": "p00",
+  "diagnostic_val_person": "p01",
+  "train_monitor_per_person": 100,
+  "data_fingerprint": "bb94b9a297a5bf60cd98995003b74a3666e9f025ad20aa7937eea7e467cd3598"
+}

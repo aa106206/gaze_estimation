@@ -1,0 +1,23 @@
+{
+  "complete_15_folds": true,
+  "folds": [
+    "p00",
+    "p01",
+    "p02",
+    "p03",
+    "p04",
+    "p05",
+    "p06",
+    "p07",
+    "p08",
+    "p09",
+    "p10",
+    "p11",
+    "p12",
+    "p13",
+    "p14"
+  ],
+  "mean_error_deg": 6.1041453450103935,
+  "fold_std_deg": 0.722047056206117,
+  "metric": "3D angular error in degrees; lower is better"
+}

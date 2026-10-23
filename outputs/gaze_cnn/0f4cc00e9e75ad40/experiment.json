@@ -1,0 +1,39 @@
+{
+  "protocol": "15_fold_lopo_fixed_epochs_final_ema_v1",
+  "config": {
+    "seed": 42,
+    "epochs": 50,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "min_learning_rate": 1e-05,
+    "warmup_epochs": 3,
+    "weight_decay": 0.001,
+    "dropout": 0.35,
+    "ema_decay": 0.99,
+    "gradient_clip": 5.0,
+    "photometric_augmentation": true
+  },
+  "data_hash": "9f520cc0af88e100b74c00bc248c0b287f3a40f65898bfea651b280c5cc2b4d0",
+  "implementation_hash": "f09bf6559f021eca5bb14a6b35def812d8910497372e2d26c58036f92bd2a181",
+  "torch_version": "2.14.1",
+  "numpy_version": "2.5.4",
+  "opencv_version": "5.0.0",
+  "device": "mps",
+  "persons": [
+    "p00",
+    "p01",
+    "p02",
+    "p03",
+    "p04",
+    "p05",
+    "p06",
+    "p07",
+    "p08",
+    "p09",
+    "p10",
+    "p11",
+    "p12",
+    "p13",
+    "p14"
+  ]
+}
